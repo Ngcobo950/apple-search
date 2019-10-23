@@ -2,7 +2,6 @@ import React from 'react';
 
 import './App.css';
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
-import 'font-awesome/css/font-awesome.min.css';
 
 
 import Home from './components/Home'

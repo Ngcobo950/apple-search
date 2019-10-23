@@ -35,19 +35,20 @@ if(process.env.NODE_ENV === 'poduction'){
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler hwen cant read the page
-app.use(function(req, res, next) {
-    next(createError(404));
-});
+// // catch 404 and forward to error handler hwen cant read the page
+// app.use(function(req, res, next) {
+//     next(createError(404));
+// });
 
 //function for error handler
 app.use(function(err, req, res, next) {
     res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page on the 500 
     res.status(err.status || 500);
     res.render('error');
 });
 
-module.exports = app;
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
