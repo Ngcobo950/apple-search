@@ -28,13 +28,6 @@ router.get('/music', (req, res) => {
     console.log(res)
 })
 
-if(process.env.NODE_ENV === 'poduction'){
-   app.use(express.static('client/build'));
-   app.get('/', function(req, res){
-       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-   });
-}
-
 
 router.post('/favoritesMusic', (req, res) => {
     console.log('access')
