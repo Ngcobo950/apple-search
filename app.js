@@ -25,11 +25,12 @@ app.use(function(req, res, next) {
 app.use(cookieParser());
 
 
-if(process.env.NODE_ENV === 'poduction'){
-   app.use(express.static('client/build'));
-   app.get('/', function(req, res){
-       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-   });
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'));
+    app.get('/', (req,res) => {
+      res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
+    });
 }
 
 app.use('/', indexRouter);
